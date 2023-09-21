@@ -1,10 +1,5 @@
-resource "google_project" "basic" {
-  name = "otto-hruby-test"
-  project_id = "otto-hruby-test"
-}
-
 resource "google_apikeys_key" "maps" {
-  project      = google_project.basic.name
+  project      = "otto-hruby-test"
   name         = "pubsub-data-logger-events-key"
   display_name = "Api key for pubsub-data-logger topic"
 
