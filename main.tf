@@ -11,11 +11,11 @@ resource "google_project_service" "gcp_services" {
 }
 
 module "data_logger" {
-  source = "./data_logger"
+  source = "./modules/data_logger"
   depends_on = [google_project_service.gcp_services]
 }
 
 module "pubsub-data-logger-events" {
-  source = "./pubsub-data-logger-events"
+  source = "./modules/pubsub-data-logger-events"
   depends_on = [google_project_service.gcp_services]
 }
