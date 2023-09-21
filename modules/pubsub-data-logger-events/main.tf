@@ -1,7 +1,7 @@
 resource "google_apikeys_key" "maps" {
   project      = "otto-hruby-test"
   name         = "pubsub-data-logger-events-key"
-  display_name = "Api key for pubsub-data-logger topic"
+  display_name = "pubsub-data-logger-events-key"
 
   restrictions {
         # Whitelist only API for pubsub
