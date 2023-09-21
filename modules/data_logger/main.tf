@@ -1,7 +1,7 @@
 resource "google_cloud_run_service" "default" {
   project = "otto-hruby-test"
   name     = "hello"
-  location = "eu-west1"
+  location = "europe-west1"
 
   template {
     spec {
