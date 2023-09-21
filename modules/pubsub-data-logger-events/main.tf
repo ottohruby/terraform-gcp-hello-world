@@ -1,5 +1,5 @@
 resource "google_project" "basic" {
-  project_id = otto-hruby-test
+  project_id = "otto-hruby-test"
 }
 
 resource "google_apikeys_key" "maps" {
