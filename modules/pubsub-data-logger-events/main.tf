@@ -11,7 +11,7 @@
 #  }
 #}
 
-resource "google_pubsub_topic" "example" {
+resource "google_pubsub_topic" "pull" {
   name = "data-logger-events"
   message_retention_duration = "86600s"
 }
