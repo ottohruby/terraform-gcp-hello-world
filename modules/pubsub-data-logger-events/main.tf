@@ -11,7 +11,7 @@
 #  }
 #}
 
-resource "google_pubsub_topic" "pull" {
+resource "google_pubsub_topic" "example" {
   name = "data-logger-events"
   message_retention_duration = "86600s"
 }
@@ -41,8 +41,7 @@ resource "google_pubsub_subscription" "example" {
   enable_message_ordering    = false
 }
 
-
-resource "google_pubsub_subscription" "example" {
+resource "google_pubsub_subscription" "bq" {
   name  = "example-subscription"
   topic = google_pubsub_topic.example.name
 
@@ -54,6 +53,7 @@ resource "google_pubsub_subscription" "example" {
 }
 
 data "google_project" "project" {
+    project_id= "otto-hruby-test"
 }
 
 resource "google_project_iam_member" "viewer" {
