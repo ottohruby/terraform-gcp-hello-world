@@ -42,8 +42,8 @@ resource "google_pubsub_subscription" "example" {
   enable_message_ordering    = false
 }
 
-resource "google_pubsub_subscription" "bq" {
-  name  = "bq"
+resource "google_pubsub_subscription" "bigquery" {
+  name  = "bigquery"
   topic = google_pubsub_topic.example.name
 
   bigquery_config {
