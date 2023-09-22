@@ -20,6 +20,7 @@ resource "google_pubsub_topic_iam_binding" "binding" {
   project = "otto-hruby-test"
   topic = "data-logger-events"
   role = "roles/pubsub.publisher"
+
   members = [
     "allUsers"
   ]
@@ -42,7 +43,7 @@ resource "google_pubsub_subscription" "example" {
 }
 
 resource "google_pubsub_subscription" "bq" {
-  name  = "example-subscription"
+  name  = "bq"
   topic = google_pubsub_topic.example.name
 
   bigquery_config {
