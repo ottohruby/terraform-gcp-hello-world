@@ -2,7 +2,8 @@ variable "gcp_service_list"{
   type = list(string)
   default= [
     "cloudresourcemanager.googleapis.com",
-    "apikeys.googleapis.com"]
+    "apikeys.googleapis.com",
+    "compute.googleapis.com"]
 }
 resource "google_project_service" "gcp_services" {
   for_each = toset(var.gcp_service_list)
