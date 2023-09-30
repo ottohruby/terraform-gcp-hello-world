@@ -4,7 +4,7 @@ resource "google_cloud_run_service" "default" {
   location = "europe-west1"
 
   metadata {
-    namespace = "my-project-name"
+    namespace = "otto-hruby-test"
   }
 
   template {
