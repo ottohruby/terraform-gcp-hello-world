@@ -39,6 +39,7 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
 }
 
 resource "google_cloud_run_domain_mapping" "default" {
+  project = "otto-hruby-test"
   location = "europe-west1"
   name     = "dp-logger.ottohruby.cz"
 
