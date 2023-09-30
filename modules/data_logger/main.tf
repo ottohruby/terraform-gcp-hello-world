@@ -3,6 +3,10 @@ resource "google_cloud_run_service" "default" {
   name     = "hello"
   location = "europe-west1"
 
+  metadata {
+    namespace = "my-project-name"
+  }
+
   template {
     spec {
       containers {
