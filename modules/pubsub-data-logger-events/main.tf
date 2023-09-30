@@ -1,3 +1,7 @@
+data "google_project" "project" {
+    project_id= "otto-hruby-test"
+}
+
 #resource "google_apikeys_key" "maps" {
 #  project      = "otto-hruby-test"
 #  name         = "pubsub-data-logger-events-key"
@@ -12,6 +16,7 @@
 #}
 
 resource "google_pubsub_topic" "example" {
+  project = data.google_project.project.project_id
   name = "data-logger-events"
   message_retention_duration = "86600s"
 }
@@ -53,9 +58,6 @@ resource "google_pubsub_subscription" "bigquery" {
   depends_on = [google_project_iam_member.viewer, google_project_iam_member.editor]
 }
 
-data "google_project" "project" {
-    project_id= "otto-hruby-test"
-}
 
 resource "google_project_iam_member" "viewer" {
   project = data.google_project.project.project_id
