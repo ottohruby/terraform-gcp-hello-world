@@ -78,6 +78,7 @@ resource "google_bigquery_dataset" "test" {
 }
 
 resource "google_bigquery_table" "test" {
+  project = data.google_project.project.project_id
   deletion_protection = false
   table_id   = "example_table"
   dataset_id = google_bigquery_dataset.test.dataset_id
