@@ -49,6 +49,7 @@ resource "google_pubsub_subscription" "example" {
 }
 
 resource "google_pubsub_subscription" "bigquery" {
+  project = data.google_project.project.project_id
   name  = "bigquery"
   topic = google_pubsub_topic.example.name
 
