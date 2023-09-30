@@ -37,6 +37,7 @@ resource "google_pubsub_topic_iam_binding" "binding" {
 
 
 resource "google_pubsub_subscription" "example" {
+  project = data.google_project.project.project_id
   name  = "example-subscription"
   topic = google_pubsub_topic.example.name
 
@@ -72,6 +73,7 @@ resource "google_project_iam_member" "editor" {
 }
 
 resource "google_bigquery_dataset" "test" {
+  project = data.google_project.project.project_id
   dataset_id = "example_dataset"
 }
 
