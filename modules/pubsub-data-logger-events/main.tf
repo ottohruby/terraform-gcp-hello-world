@@ -2,19 +2,6 @@ data "google_project" "project" {
     project_id= "otto-hruby-test"
 }
 
-#resource "google_apikeys_key" "maps" {
-#  project      = "otto-hruby-test"
-#  name         = "pubsub-data-logger-events-key"
-#  display_name = "pubsub-data-logger-events-key"
-
-#  restrictions {
-#        # Whitelist only API for pubsub
-#        api_targets {
-#            service = "pubsub.googleapis.com"
-#        }
-#  }
-#}
-
 resource "google_pubsub_topic" "example" {
   project = data.google_project.project.project_id
   name = "data-logger-events"
