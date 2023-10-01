@@ -3,11 +3,17 @@ data "google_project" "project" {
 }
 
 resource "google_service_account" "service_account" {
-  account_id   = "data-logger"
+  account_id   = "run-service-data-logger"
+}
+
+resource "google_service_account_iam_member" "admin-account-iam" {
+  service_account_id = google_service_account.sa.name
+  role               = "roles/pubsub.publisher"
+  member             = google_service_account.service_account.email
 }
 
 resource "google_cloud_run_v2_service" "default" {
-  name     = "otto-hruby-test"
+  name     = "data-logger"
   location = "europe-west1"
   ingress = "INGRESS_TRAFFIC_ALL"
 
