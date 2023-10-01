@@ -13,7 +13,7 @@ resource "google_cloud_run_v2_service" "default" {
 
 
   template {
-    service_account = google_service_account.service_account.name
+    service_account = google_service_account.service_account.email
     containers {
       image = "us-docker.pkg.dev/cloudrun/container/hello"
     }
