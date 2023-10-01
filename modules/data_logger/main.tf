@@ -8,7 +8,7 @@ resource "google_service_account" "service_account" {
 
 resource "google_cloud_run_v2_service" "default" {
   name     = "otto-hruby-test"
-  location = "hello2"
+  location = "europe-west1"
   ingress = "INGRESS_TRAFFIC_ALL"
 
   template {
