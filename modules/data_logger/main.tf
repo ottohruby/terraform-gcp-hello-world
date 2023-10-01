@@ -1,3 +1,16 @@
+data "google_project" "project" {
+    project_id= "otto-hruby-test"
+}
+
+resource "google_service_account" "service_account" {
+  account_id   = "data-logger"
+}
+
+resource "google_service_account_iam_binding" "admin-account-iam" {
+  service_account_id = google_service_account.service_account.name
+  role               = "roles/pubsub.publisher"
+}
+
 resource "google_cloud_run_service" "default" {
   project = "otto-hruby-test"
   name     = "hello"
@@ -6,6 +19,8 @@ resource "google_cloud_run_service" "default" {
   metadata {
     namespace = "otto-hruby-test"
   }
+
+  service_account_name = google_service_account.service_account.name
 
   template {
     spec {
