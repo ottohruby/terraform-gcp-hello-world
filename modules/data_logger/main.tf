@@ -11,10 +11,6 @@ resource "google_cloud_run_v2_service" "default" {
   location = "hello2"
   ingress = "INGRESS_TRAFFIC_ALL"
 
-  metadata {
-    namespace = "otto-hruby-test"
-  }
-
   template {
     containers {
       image = "us-docker.pkg.dev/cloudrun/container/hello"
