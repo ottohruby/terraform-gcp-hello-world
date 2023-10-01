@@ -6,7 +6,8 @@ resource "google_service_account" "service_account" {
   account_id   = "run-service-data-logger"
 }
 
-resource "google_project_iam_member" "firestore_owner_binding" {
+resource "google_project_iam_member" "pubsub_publisher" {
+  project = data.google_project.project.project_id
   role    = "roles/pubsub.publisher"
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
@@ -26,7 +27,7 @@ resource "google_cloud_run_v2_service" "default" {
 }
 
 resource "google_cloud_run_domain_mapping" "default" {
-  project = "otto-hruby-test"
+  project = data.google_project.project.project_id
   location = "europe-west1"
   name     = "dp-logger.ottohruby.cz"
 
