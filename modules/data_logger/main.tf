@@ -15,8 +15,6 @@ resource "google_project_iam_member" "pubsub_publisher" {
 resource "google_cloud_run_v2_service" "default" {
   name     = "data-logger"
   location = "europe-west1"
-  ingress = "INGRESS_TRAFFIC_ALL"
-
 
   template {
     service_account = google_service_account.service_account.email
