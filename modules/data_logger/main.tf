@@ -7,7 +7,7 @@ resource "google_service_account" "service_account" {
 }
 
 resource "google_service_account_iam_member" "admin-account-iam" {
-  service_account_id = google_service_account.sa.name
+  service_account_id = google_service_account.service_account.name
   role               = "roles/pubsub.publisher"
   member             = google_service_account.service_account.email
 }
