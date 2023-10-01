@@ -11,6 +11,8 @@ resource "google_cloud_run_v2_service" "default" {
   location = "europe-west1"
   ingress = "INGRESS_TRAFFIC_ALL"
 
+  service_account = google_service_account.service_account.name
+
   template {
     containers {
       image = "us-docker.pkg.dev/cloudrun/container/hello"
