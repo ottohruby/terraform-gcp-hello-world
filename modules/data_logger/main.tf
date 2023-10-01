@@ -6,7 +6,10 @@ resource "google_service_account" "service_account" {
   account_id   = "run-service-data-logger"
 }
 
-
+resource "google_project_iam_member" "firestore_owner_binding" {
+  role    = "roles/pubsub.publisher"
+  member  = "serviceAccount:${google_service_account.service_account.email}"
+}
 
 resource "google_cloud_run_v2_service" "default" {
   name     = "data-logger"
