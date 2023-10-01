@@ -4,7 +4,8 @@ variable "gcp_service_list"{
     "cloudresourcemanager.googleapis.com",
     "apikeys.googleapis.com",
     "compute.googleapis.com",
-    "sqladmin.googleapis.com" 
+    "sqladmin.googleapis.com",
+    "iam.googleapis.com"
     ]
 }
 resource "google_project_service" "gcp_services" {
