@@ -1,13 +1,8 @@
-variable "project" {
-  type = object({
-    project_id = string
-    location = string
-  })
-}
+
 
 data "gcp_project" "project" {
-    project_id = var.project.project_id
-    location = var.project.location
+    project_id = "otto-hruby-test"
+    location = "europe-west1"
 }
 
 
