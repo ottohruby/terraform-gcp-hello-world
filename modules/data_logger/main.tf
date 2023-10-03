@@ -1,7 +1,22 @@
+variable "project" {
+  type = object({
+    project_id = string
+  })
+}
+
+variable "location" {
+    type = string
+    default = "europe-west1"
+}
+
 data "gcp_project" "project" {
     project_id = "otto-hruby-test"
-    location = "europe-west1"
+    location = var.location
 }
+
+
+
+
 
 resource "google_service_account" "service_account" {
   account_id   = "run-service--data-logger"
