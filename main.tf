@@ -1,6 +1,8 @@
-data "google_project" "project" {
-    project_id= "otto-hruby-test"
+data "gcp_project" "project" {
+    project_id = "otto-hruby-test"
+    location = "europe-west1"
 }
+
 
 variable "gcp_required_api"{
   type = list(string)
@@ -14,7 +16,7 @@ variable "gcp_required_api"{
 }
 resource "google_project_service" "gcp_api" {
   for_each = toset(var.gcp_required_api)
-  project = data.google_project.project.project_id
+  project = data.gcp_project.project.project_id
   service = each.key
 }
 
